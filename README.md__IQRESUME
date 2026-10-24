@@ -1,0 +1,1513 @@
+RESUMEIQ
+AI-Powered Resume Analyzer & Career Recommendation Platform
+
+ResumeIQ is an AI-powered career assistance platform designed to help users analyze their resumes, compare them with job descriptions, identify skill gaps, discover relevant career opportunities, and improve their professional profiles.
+
+The platform combines Natural Language Processing (NLP), machine learning, text similarity analysis, and personalized career recommendations within a modern, responsive, and user-friendly web application.
+
+ResumeIQ aims to make career development easier by providing meaningful insights into resume content and helping users understand how their demonstrated skills align with specific job requirements.
+
+Important: ResumeIQ provides text-similarity scores and career guidance. These scores do not represent the probability of getting hired and should not be interpreted as a definitive measure of a candidate's ability or suitability.
+
+Table of Contents
+Project Overview
+Project Objectives
+Key Features
+Technology Stack
+System Architecture
+Project Structure
+How ResumeIQ Works
+AI and NLP Methodology
+Authentication and Authorization
+Database Architecture
+REST API
+Installation and Setup
+Environment Configuration
+Running the Application
+Chatbot and Help Center
+User Dashboard
+Admin Dashboard
+Security and Privacy
+Testing
+API Documentation
+Deployment
+Limitations
+Future Enhancements
+Contributing
+License
+Project Information
+📌 Project Overview
+
+ResumeIQ is a full-stack web application that integrates modern web development with AI-assisted resume analysis and career guidance.
+
+The application allows users to upload resumes, extract important information, compare their resumes with job descriptions, identify relevant skills, review potential skill gaps, and receive personalized career recommendations.
+
+Unlike a static resume-checking interface, the intended application uses a backend API and relational database to manage user accounts, resumes, analysis history, recommendations, chatbot conversations, and support requests.
+
+The platform also includes an administrator interface for managing users, support tickets, frequently asked questions, and operational analytics.
+
+The Problem
+
+Many job seekers struggle to understand how effectively their resumes communicate their qualifications in relation to a particular job.
+
+Common challenges include:
+
+Difficulty identifying relevant skills in a resume.
+Uncertainty about whether a resume addresses a job description.
+Missing or insufficiently demonstrated requirements.
+Difficulty choosing suitable career paths.
+Lack of clear and actionable resume improvement suggestions.
+Limited visibility into previous resume analyses.
+The Solution
+
+ResumeIQ provides a centralized platform that helps users:
+
+Analyze resume content automatically.
+Compare resumes against job descriptions.
+Identify matching skills and keywords.
+Find requirements that are not clearly demonstrated.
+Explore relevant career categories.
+Review personalized learning suggestions.
+Save and revisit previous analyses.
+Access career guidance through a chatbot.
+Contact support through a ticket-management system.
+🎯 Project Objectives
+
+The main objectives of ResumeIQ are:
+
+Develop a complete full-stack web application using React and FastAPI.
+Implement an NLP pipeline for extracting useful information from resumes.
+Calculate resume and job-description text similarity using TF-IDF and cosine similarity.
+Identify skills and compare them with job requirements.
+Recommend relevant career categories using explainable analysis.
+Provide useful resume improvement suggestions.
+Implement secure authentication and role-based authorization.
+Store application data in PostgreSQL.
+Develop a responsive user dashboard and administrator dashboard.
+Build a chatbot with predefined career-related questions and answers.
+Provide a searchable Help Center and support ticket system.
+Demonstrate practical AI, machine learning, database, API, and cybersecurity concepts.
+✨ Key Features
+1. AI-Powered Resume Analyzer
+
+ResumeIQ analyzes uploaded resumes and extracts useful information.
+
+Supported formats:
+
+PDF
+DOCX
+TXT
+
+Features:
+
+Drag-and-drop file upload.
+File validation and processing status.
+Resume text extraction.
+Resume section identification.
+Skill extraction.
+Education and experience information extraction where supported.
+Resume strengths and improvement suggestions.
+Persistent analysis history.
+Clear processing errors when a document cannot be analyzed.
+
+Users can review the extracted information and correct mistakes where editing functionality is available.
+
+2. Job Description Matcher
+
+The Job Description Matcher compares a selected resume with a job description.
+
+It provides:
+
+Text-similarity score.
+Matching skills.
+Missing or insufficiently demonstrated requirements.
+Relevant resume evidence where available.
+Keyword alignment.
+Suggested resume improvements.
+Saved comparison results.
+
+Users can compare the same resume against multiple job descriptions.
+
+Note: A skill missing from a resume is not necessarily a skill the candidate lacks. It may simply be absent from the document or insufficiently demonstrated.
+
+3. Skill Extraction
+
+The platform uses a configurable skill taxonomy to identify skills in resume text.
+
+Skill categories include:
+
+Programming Languages.
+Web Development.
+Data Science.
+Machine Learning.
+Cloud Computing.
+Databases.
+Cybersecurity.
+Project Management.
+Communication.
+Problem Solving.
+
+The extraction pipeline is designed to preserve important technical expressions such as C++, C#, .NET, and Node.js.
+
+4. Career Recommendations
+
+ResumeIQ recommends potential career categories based on extracted skills, resume information, and user preferences.
+
+Each recommendation can include:
+
+Job title.
+Explanation of relevance.
+Relevant skills.
+Skills to develop.
+Suggested learning resources.
+Recommended next steps.
+
+Users can save recommendations and update their status where supported.
+
+Career recommendations are intended to support exploration, not make employment decisions on behalf of users.
+
+5. Resume Improvement Suggestions
+
+The platform can provide practical suggestions to improve resume clarity and relevance.
+
+Examples include:
+
+Using clearer section headings.
+Improving professional summaries.
+Rewriting vague bullet points.
+Highlighting relevant projects.
+Using specific examples of achievements.
+Aligning resume language with job requirements.
+Identifying skills that need stronger evidence.
+
+Optional generative AI integration can provide more advanced writing suggestions.
+
+Generated content must be reviewed by the user and must not invent qualifications, certifications, employment history, or achievements.
+
+6. User Dashboard
+
+The dashboard provides a centralized view of the user's career-analysis activity.
+
+It can display:
+
+Total resume analyses.
+Latest similarity score.
+Saved career recommendations.
+Recent analysis history.
+Skills overview.
+Analysis activity charts.
+Recent support tickets.
+Quick navigation to important features.
+
+All dashboard metrics should come from actual application records rather than fabricated production data.
+
+7. Analysis History
+
+Authenticated users can revisit saved analyses.
+
+The history section can include:
+
+Resume information.
+Job title or target role.
+Text-similarity score.
+Analysis date.
+Extracted skills.
+Matching requirements.
+Suggested improvements.
+
+Users must only be able to access their own records.
+
+8. AI Career Assistant
+
+ResumeIQ includes a chatbot named ResumeIQ AI Career Assistant.
+
+The chatbot provides predefined answers to ten common career questions and can optionally support an LLM-powered mode.
+
+Features include:
+
+Suggested questions.
+Basic keyword-based matching.
+Chat message history.
+Loading and error states.
+Helpful fallback responses.
+Navigation to the Help Center.
+Clear chat-history controls.
+Optional generative AI integration.
+
+The predefined FAQ functionality must work without a paid AI service.
+
+9. Help Center
+
+The Help Center provides information about using the platform.
+
+It includes:
+
+Searchable FAQs.
+Help article categories.
+Getting Started guidance.
+Account management assistance.
+Resume-analysis guidance.
+Career-development information.
+Privacy information.
+Contact Support functionality.
+10. Support Ticket System
+
+Users can submit support requests and track their progress.
+
+A support ticket can include:
+
+Ticket ID.
+Subject.
+Category.
+Description.
+Priority.
+Status.
+Creation date.
+Last-updated date.
+Conversation messages.
+Assigned administrator, where applicable.
+
+Supported ticket statuses:
+
+OPEN
+IN_PROGRESS
+WAITING_FOR_USER
+RESOLVED
+CLOSED
+
+Users must only be able to access their own tickets. Administrators can manage tickets according to their permissions.
+
+11. Admin Dashboard
+
+The administrator interface provides authorized access to application-management functions.
+
+Features include:
+
+Registered-user statistics.
+Resume-analysis statistics.
+Recent registrations.
+Open support tickets.
+Analysis activity charts.
+Job-category statistics.
+User account management.
+Support ticket management.
+FAQ management.
+System activity logs.
+Administrative audit trails.
+
+All administrative endpoints must enforce authorization on the backend.
+
+12. Responsive Design
+
+ResumeIQ is designed for different screen sizes.
+
+Supported target devices include:
+
+Android phones.
+iPhones.
+iPads.
+Android tablets.
+Laptops.
+Desktop computers.
+
+The interface uses responsive layouts, accessible forms, touch-friendly controls, and mobile-friendly navigation.
+
+13. Optional Generative AI and RAG
+
+Optional AI integrations can enhance the core NLP pipeline.
+
+Potential capabilities include:
+
+Resume bullet-point rewriting.
+Professional-summary improvement.
+Skill-gap explanations.
+Personalized learning plans.
+Career guidance based on trusted reference material.
+
+Retrieval-Augmented Generation (RAG) can retrieve relevant career-guidance documents and provide source-grounded answers.
+
+The core analysis pipeline should continue working when an optional external LLM provider is unavailable.
+
+🛠️ Technology Stack
+Frontend
+Technology	Purpose
+React.js	User interface development
+Vite	Development server and build tooling
+TypeScript	Type safety
+Tailwind CSS	Responsive styling
+Framer Motion	UI animations
+React Router	Client-side navigation
+Axios	HTTP requests
+React Hook Form	Form management
+Zod	Input validation
+TanStack Query	Server-state management
+Recharts	Data visualization
+Lucide React	Icons
+Backend
+Technology	Purpose
+Python	Backend programming
+FastAPI	REST API development
+Pydantic	Request and response validation
+SQLAlchemy	Database ORM
+Alembic	Database migrations
+Argon2id	Password hashing
+JWT	Authentication tokens
+Python Logging	Application logging
+Database
+Technology	Purpose
+PostgreSQL	Relational database
+SQLAlchemy ORM	Database operations
+Alembic	Schema versioning
+JSONB	Structured analysis data
+
+SQLite may be used as an optional local-development alternative if configured.
+
+AI and NLP
+Technology	Purpose
+NumPy	Numerical processing
+Pandas	Dataset preparation
+Scikit-learn	NLP and machine learning
+TF-IDF	Text vectorization
+Cosine Similarity	Text-similarity calculation
+Rule-based NLP	Skill extraction and matching
+Optional LLM	Advanced writing assistance
+Optional RAG	Evidence-grounded career guidance
+Testing and Documentation
+Pytest.
+FastAPI TestClient.
+Vitest.
+React Testing Library.
+OpenAPI.
+Swagger UI.
+Docker Compose, where configured.
+
+Package versions should be pinned and tested for compatibility before deployment.
+
+🏗️ System Architecture
+
+ResumeIQ follows a layered architecture that separates presentation, API handling, business logic, AI processing, and persistent storage.
+
+                         RESUMEIQ
+                             |
+                  React + TypeScript
+                             |
+                    Responsive Frontend
+                             |
+                     REST API Requests
+                             |
+                   FastAPI Backend
+                             |
+             +---------------+---------------+
+             |               |               |
+       Authentication   Application      AI/NLP Engine
+       & Authorization    Services            |
+             |               |          +----+-----+
+             |               |          |          |
+             |               |        TF-IDF    Skill
+             |               |          |      Extraction
+             |               |       Cosine       |
+             |               |      Similarity  Career
+             |               |                Classification
+             +---------------+---------------+
+                             |
+                     SQLAlchemy ORM
+                             |
+                       PostgreSQL
+                             |
+               Persistent Application Data
+Architectural Principles
+Separation of concerns.
+Reusable frontend components.
+Versioned REST API.
+Validated request and response schemas.
+Database transactions for related operations.
+Explicit authentication and authorization.
+Modular AI processing.
+Centralized error handling.
+Environment-based configuration.
+Automated testing.
+📁 Project Structure
+
+The recommended repository structure is:
+
+RESUMEIQ/
+│
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── assets/
+│   │   ├── components/
+│   │   │   ├── ui/
+│   │   │   ├── layout/
+│   │   │   ├── chatbot/
+│   │   │   └── charts/
+│   │   ├── pages/
+│   │   │   ├── public/
+│   │   │   ├── auth/
+│   │   │   ├── dashboard/
+│   │   │   ├── resume/
+│   │   │   ├── career/
+│   │   │   ├── help/
+│   │   │   └── admin/
+│   │   ├── hooks/
+│   │   ├── services/
+│   │   ├── schemas/
+│   │   ├── types/
+│   │   ├── utils/
+│   │   ├── routes/
+│   │   ├── App.tsx
+│   │   └── main.tsx
+│   ├── package.json
+│   ├── vite.config.ts
+│   ├── tailwind.config.ts
+│   └── .env.example
+│
+├── backend/
+│   ├── app/
+│   │   ├── api/
+│   │   │   └── v1/
+│   │   ├── core/
+│   │   │   ├── config.py
+│   │   │   ├── security.py
+│   │   │   └── logging.py
+│   │   ├── db/
+│   │   │   ├── session.py
+│   │   │   └── base.py
+│   │   ├── models/
+│   │   ├── schemas/
+│   │   ├── services/
+│   │   ├── repositories/
+│   │   ├── ai/
+│   │   │   ├── preprocessing.py
+│   │   │   ├── skill_extraction.py
+│   │   │   ├── similarity.py
+│   │   │   ├── classification.py
+│   │   │   ├── recommendations.py
+│   │   │   └── rag.py
+│   │   ├── utils/
+│   │   └── main.py
+│   ├── migrations/
+│   ├── tests/
+│   ├── requirements.txt
+│   ├── alembic.ini
+│   └── .env.example
+│
+├── docs/
+│   ├── architecture.md
+│   ├── database.md
+│   ├── security.md
+│   ├── ai-methodology.md
+│   └── api-guide.md
+│
+├── docker-compose.yml
+├── .gitignore
+└── README.md
+
+This structure may be adapted to the actual implementation while maintaining clear separation between frontend, backend, database access, and AI processing.
+
+⚙️ How ResumeIQ Works
+Step 1: User Registration
+
+The user creates an account with a name, email address, and password.
+
+The backend validates the input, checks for duplicate email addresses, hashes the password, and saves the account in the database.
+
+Step 2: Resume Upload
+
+The user uploads a resume in PDF, DOCX, or TXT format.
+
+The backend validates the file, checks its format and size, and processes it using the appropriate document-extraction library.
+
+Step 3: Text Extraction
+
+The document is converted into text.
+
+The processing pipeline cleans unnecessary whitespace, normalizes text, and identifies useful sections where possible.
+
+Step 4: Skill Extraction
+
+The NLP engine identifies skills using a configurable taxonomy.
+
+The extracted information may include technical skills, professional skills, education details, and relevant experience.
+
+Step 5: Job Description Input
+
+The user enters a job description or selects an existing description.
+
+The system validates the input and extracts relevant requirements and keywords.
+
+Step 6: Text-Similarity Analysis
+
+The system transforms the resume and job-description text into TF-IDF vectors and calculates cosine similarity.
+
+The result is displayed as a normalized text-similarity score.
+
+Step 7: Requirement Matching
+
+The application compares extracted skills and requirements.
+
+It identifies matching skills and requirements that are not clearly demonstrated in the resume.
+
+Step 8: Career Recommendations
+
+The system uses the available resume information, skills, and optional user preferences to recommend relevant career categories.
+
+Step 9: Results and History
+
+The results are stored in the database and displayed on the user's dashboard.
+
+Users can revisit previous analyses and manage saved recommendations.
+
+Step 10: Career Support
+
+The user can ask predefined chatbot questions, search the Help Center, or create a support ticket.
+
+🧠 AI and NLP Methodology
+
+ResumeIQ uses a modular NLP pipeline rather than depending entirely on an external generative AI service.
+
+1. Text Preprocessing
+
+Preprocessing prepares resume and job-description text for analysis.
+
+Typical operations include:
+
+Whitespace normalization.
+Text cleanup.
+Tokenization.
+Relevant stop-word handling.
+Skill and keyword extraction.
+Section detection.
+
+Preprocessing must preserve important technical terms such as C++, C#, .NET, and Node.js.
+
+2. TF-IDF Vectorization
+
+TF-IDF stands for Term Frequency–Inverse Document Frequency.
+
+It converts text into numerical vectors while giving more weight to terms that are informative within the document collection.
+
+Conceptually:
+
+TF-IDF = Term Frequency × Inverse Document Frequency
+
+Term frequency measures how often a term appears in a document. Inverse document frequency reduces the weight of terms that appear in many documents.
+
+Scikit-learn provides the TfidfVectorizer implementation.
+
+3. Cosine Similarity
+
+Cosine similarity measures the similarity between two numerical vectors.
+
+The calculation is:
+
+Cosine Similarity = (A · B) / (||A|| × ||B||)
+
+Where:
+
+A represents the resume vector.
+B represents the job-description vector.
+A · B is the dot product.
+||A|| and ||B|| are the vector magnitudes.
+
+When both vectors contain meaningful terms, the cosine similarity can be normalized to a 0–100 scale for display.
+
+For example, a score of 75 indicates a particular level of textual similarity under the application's scoring method. It does not mean that the candidate has a 75% chance of being hired.
+
+Empty text, empty vectors, and other invalid inputs must be handled explicitly.
+
+4. Skill Extraction
+
+The skill extractor uses a configurable taxonomy and text-matching logic.
+
+The taxonomy can include:
+
+Python.
+Java.
+JavaScript.
+React.
+FastAPI.
+SQL.
+PostgreSQL.
+Machine Learning.
+Data Analysis.
+Cloud Computing.
+Cybersecurity.
+Project Management.
+
+Skill extraction is imperfect. A detected term does not automatically prove proficiency, and an undetected term does not prove that the candidate lacks a skill.
+
+5. Requirement Matching
+
+The matcher compares job requirements with the skills and evidence found in the resume.
+
+The results should distinguish among:
+
+Matching skills.
+Related skills.
+Requirements not demonstrated in the resume.
+Requirements that need stronger supporting evidence.
+
+This approach provides more useful feedback than simply counting matching keywords.
+
+6. Career Classification
+
+A Scikit-learn model may classify resumes into broad categories such as:
+
+Software Development.
+Data Analytics.
+Data Science.
+Digital Marketing.
+Cybersecurity.
+UI/UX Design.
+Project Management.
+
+A responsible implementation should use a documented dataset, separate training and test data, and evaluate performance using precision, recall, F1-score, and a confusion matrix.
+
+Model accuracy must be measured rather than invented.
+
+If a representative dataset is unavailable, a clearly labeled rule-based baseline can be used until suitable training data is available.
+
+7. Optional Generative AI
+
+An optional LLM integration can help users:
+
+Rewrite resume bullet points.
+Improve professional summaries.
+Explain skill gaps.
+Create learning plans.
+Tailor wording to job requirements.
+
+Generated suggestions must not invent achievements, qualifications, certifications, or employment history.
+
+Users should review suggestions before applying them to their resumes.
+
+8. Optional Retrieval-Augmented Generation
+
+RAG can improve career guidance by retrieving relevant information from a trusted knowledge base.
+
+A typical workflow includes:
+
+Ingest trusted career-guidance documents.
+Split documents into manageable chunks.
+Index the chunks using TF-IDF or vector embeddings.
+Retrieve relevant passages.
+Construct a context for the language model.
+Generate an answer grounded in retrieved information.
+Attribute the relevant sources.
+Explain when sufficient evidence is unavailable.
+
+Private resumes must remain isolated between users and must not become part of another user's chatbot context.
+
+🔐 Authentication and Authorization
+
+ResumeIQ is designed to support secure account management and role-based access.
+
+User Registration
+
+Registration includes:
+
+Full name.
+Email address.
+Password.
+Password confirmation.
+
+The backend validates registration details, normalizes email addresses, prevents duplicate accounts, and hashes passwords with Argon2id.
+
+Login and Sessions
+
+The authentication system is intended to support:
+
+Email and password login.
+Short-lived access tokens.
+Refresh-token rotation.
+Session expiration.
+Logout and token revocation.
+Failed-login throttling.
+Secure cookie handling.
+
+For browser authentication, HttpOnly, Secure, and appropriately configured SameSite cookies are preferred for sensitive tokens. Cookie-based authentication must also use appropriate CSRF protections.
+
+Long-lived authentication tokens should not be stored in localStorage.
+
+Role-Based Access Control
+
+The supported roles are:
+
+USER
+ADMIN
+
+Users can access only their own private resources.
+
+Administrators can access administrative functionality permitted by their role and operational responsibilities.
+
+The backend must enforce these permissions independently of frontend navigation.
+
+Password Recovery
+
+The password-recovery workflow should use cryptographically secure, single-use reset tokens.
+
+Only token hashes should be stored. Reset tokens must expire, become invalid after use, and never appear in application logs.
+
+The application should avoid revealing whether an email address is registered.
+
+Administrator Bootstrap
+
+The first administrator should be created through a secure command or deployment process.
+
+Do not expose a public administrator-registration form.
+
+🗄️ Database Architecture
+
+ResumeIQ uses PostgreSQL as its primary relational database.
+
+SQLAlchemy manages database operations, while Alembic manages schema migrations.
+
+Core Tables
+Table	Purpose
+users	User accounts, roles, and account status
+resumes	Resume metadata and storage references
+resume_analyses	Analysis results and similarity scores
+career_recommendations	Saved career recommendations
+support_tickets	User support requests
+support_messages	Ticket conversation messages
+faqs	Help Center and chatbot FAQ content
+chatbot_conversations	Chat sessions
+chatbot_messages	Chat messages
+refresh_tokens	Hashed refresh-token records
+password_reset_tokens	Hashed password-reset tokens
+audit_logs	Administrative activity records
+Database Design Principles
+UUID primary keys where appropriate.
+Foreign-key relationships.
+Unique constraints for account identifiers.
+Indexes for frequently queried fields.
+JSONB for suitable structured analysis results.
+Transactions for operations involving multiple records.
+Explicit deletion and retention policies.
+Database migrations for schema changes.
+Ownership validation before accessing private records.
+
+Original resume files should not be retained longer than necessary. Users should have clear controls for deleting their files and associated data.
+
+See docs/database.md for further details when available.
+
+🌐 REST API
+
+ResumeIQ uses a versioned REST API with the intended prefix:
+
+/api/v1
+
+Authentication Endpoints
+Method	Endpoint	Purpose
+POST	/api/v1/auth/register	Register a user
+POST	/api/v1/auth/login	Authenticate a user
+POST	/api/v1/auth/refresh	Refresh an access session
+POST	/api/v1/auth/logout	Log out and revoke a session
+POST	/api/v1/auth/forgot-password	Request a password reset
+POST	/api/v1/auth/reset-password	Reset a password
+GET	/api/v1/auth/me	Retrieve the authenticated user
+Resume Endpoints
+Method	Endpoint	Purpose
+POST	/api/v1/resumes	Upload a resume
+GET	/api/v1/resumes	List the current user's resumes
+GET	/api/v1/resumes/{resume_id}	Retrieve resume metadata
+DELETE	/api/v1/resumes/{resume_id}	Delete a resume
+Analysis Endpoints
+Method	Endpoint	Purpose
+POST	/api/v1/analyses	Create an analysis
+GET	/api/v1/analyses	List analysis history
+GET	/api/v1/analyses/{analysis_id}	Retrieve analysis results
+DELETE	/api/v1/analyses/{analysis_id}	Delete an analysis
+Job Matching Endpoints
+Method	Endpoint	Purpose
+POST	/api/v1/job-matches	Compare a resume with a job description
+GET	/api/v1/job-matches/{match_id}	Retrieve a saved match
+Career Recommendation Endpoints
+Method	Endpoint	Purpose
+GET	/api/v1/recommendations	List recommendations
+GET	/api/v1/recommendations/{recommendation_id}	Retrieve a recommendation
+PATCH	/api/v1/recommendations/{recommendation_id}	Update recommendation status
+Chatbot Endpoints
+Method	Endpoint	Purpose
+GET	/api/v1/chatbot/faqs	Retrieve chatbot FAQs
+POST	/api/v1/chatbot/messages	Submit a chatbot message
+GET	/api/v1/chatbot/conversations	List chat conversations
+DELETE	/api/v1/chatbot/conversations/{conversation_id}	Delete a conversation
+Help Center and Support Endpoints
+Method	Endpoint	Purpose
+GET	/api/v1/help/articles	Search or list help articles
+GET	/api/v1/help/articles/{article_id}	Retrieve an article
+GET	/api/v1/help/faqs	Retrieve published FAQs
+POST	/api/v1/support/tickets	Create a support ticket
+GET	/api/v1/support/tickets	List the user's tickets
+GET	/api/v1/support/tickets/{ticket_id}	Retrieve a ticket
+POST	/api/v1/support/tickets/{ticket_id}/messages	Add a ticket message
+Dashboard Endpoints
+Method	Endpoint	Purpose
+GET	/api/v1/dashboard/summary	Retrieve dashboard metrics
+GET	/api/v1/dashboard/activity	Retrieve recent activity
+GET	/api/v1/dashboard/skills	Retrieve skill summaries
+Administrator Endpoints
+Method	Endpoint	Purpose
+GET	/api/v1/admin/dashboard	Retrieve administrative metrics
+GET	/api/v1/admin/users	Search and list users
+GET	/api/v1/admin/users/{user_id}	Retrieve permitted user details
+PATCH	/api/v1/admin/users/{user_id}/status	Update account status
+GET	/api/v1/admin/analyses	Retrieve permitted analysis statistics
+GET	/api/v1/admin/tickets	List support tickets
+PATCH	/api/v1/admin/tickets/{ticket_id}	Update a support ticket
+POST	/api/v1/admin/tickets/{ticket_id}/messages	Reply to a support ticket
+GET	/api/v1/admin/faqs	List FAQs
+POST	/api/v1/admin/faqs	Create an FAQ
+PATCH	/api/v1/admin/faqs/{faq_id}	Update an FAQ
+DELETE	/api/v1/admin/faqs/{faq_id}	Delete an FAQ
+GET	/api/v1/admin/audit-logs	Retrieve audit logs
+
+These routes describe the intended API contract. Confirm the actual endpoints against the implemented FastAPI routers and OpenAPI schema.
+
+All endpoints must validate input, use appropriate HTTP status codes, and enforce authentication and authorization where required.
+
+💻 Installation and Setup
+
+Follow these instructions to prepare a local development environment.
+
+Prerequisites
+
+Install:
+
+Git.
+Node.js and npm.
+Python 3.11 or a compatible version supported by the pinned dependencies.
+PostgreSQL.
+Visual Studio Code or another code editor.
+
+Docker and Docker Compose may be used if the repository includes a working Docker configuration.
+
+Step 1: Clone the Repository
+
+Replace the placeholder with your actual GitHub repository URL.
+
+git clone <YOUR_GITHUB_REPOSITORY_URL>
+cd RESUMEIQ
+Step 2: Set Up the Backend
+
+Move into the backend directory:
+
+cd backend
+
+Create a Python virtual environment:
+
+python -m venv .venv
+
+Activate the environment.
+
+Windows PowerShell:
+
+.venv\Scripts\Activate.ps1
+
+Windows Command Prompt:
+
+.venv\Scripts\activate.bat
+
+macOS or Linux:
+
+source .venv/bin/activate
+
+Install the backend dependencies:
+
+pip install -r requirements.txt
+Step 3: Configure the Backend Environment
+
+Create a local environment file from the example:
+
+Windows PowerShell:
+
+Copy-Item .env.example .env
+
+macOS or Linux:
+
+cp .env.example .env
+
+Update the environment variables with your local database connection and security settings.
+
+Never commit the real .env file.
+
+Step 4: Configure PostgreSQL
+
+Create a PostgreSQL database and a dedicated application user.
+
+For example, using the PostgreSQL command-line client:
+
+CREATE USER resumeiq_user WITH PASSWORD 'replace_with_a_strong_password';
+CREATE DATABASE resumeiq OWNER resumeiq_user;
+
+Use a secure password and configure access according to your local PostgreSQL setup.
+
+Update DATABASE_URL in the backend environment file.
+
+Example:
+
+DATABASE_URL=postgresql+psycopg://resumeiq_user:replace_with_a_strong_password@localhost:5432/resumeiq
+
+Ensure the PostgreSQL driver required by the application is installed.
+
+Step 5: Run Database Migrations
+
+From the backend directory, run:
+
+alembic upgrade head
+
+This command applies the migrations defined by the project.
+
+If migrations have not yet been created or configured, complete that setup before relying on database persistence.
+
+Step 6: Start the Backend Server
+
+From the backend directory:
+
+uvicorn app.main:app --reload
+
+The example assumes the FastAPI application is exposed as app in backend/app/main.py.
+
+If the actual entry point differs, adjust the command accordingly.
+
+The local API is typically available at:
+
+http://127.0.0.1:8000
+
+Step 7: Set Up the Frontend
+
+Open a second terminal from the repository root:
+
+cd frontend
+
+Install frontend dependencies:
+
+npm install
+
+Create a frontend environment file:
+
+Windows PowerShell:
+
+Copy-Item .env.example .env
+
+macOS or Linux:
+
+cp .env.example .env
+
+Configure the API base URL:
+
+VITE_API_BASE_URL=http://127.0.0.1:8000/api/v1
+
+Ensure this variable name matches the frontend's API-client configuration.
+
+Step 8: Start the Frontend
+
+Run:
+
+npm run dev
+
+Vite will display the development URL in the terminal, commonly:
+
+http://localhost:5173
+
+Open the displayed URL in your browser.
+
+Step 9: Verify the Application
+
+Confirm that:
+
+The frontend opens successfully.
+The backend starts without errors.
+PostgreSQL is accessible.
+Database migrations have completed.
+Registration and login work.
+The frontend can call the backend.
+Resume upload and analysis return real results.
+Analysis records persist after reloading the page.
+
+These steps are general setup instructions and must be checked against the actual project files.
+
+🔧 Environment Configuration
+
+The application should use environment variables for database credentials, security settings, file storage, email, and optional external services.
+
+Example Backend Environment
+APP_ENV=development
+DATABASE_URL=postgresql+psycopg://resumeiq_user:change_me@localhost:5432/resumeiq
+
+SECRET_KEY=replace_with_a_long_random_secret
+
+ACCESS_TOKEN_EXPIRE_MINUTES=15
+REFRESH_TOKEN_EXPIRE_DAYS=7
+
+FRONTEND_ORIGINS=http://localhost:5173
+
+UPLOAD_DIR=./private_uploads
+MAX_UPLOAD_SIZE_MB=10
+
+SMTP_HOST=
+SMTP_PORT=587
+SMTP_USERNAME=
+SMTP_PASSWORD=
+EMAIL_FROM=
+
+LLM_PROVIDER=
+LLM_API_KEY=
+Example Frontend Environment
+VITE_API_BASE_URL=http://127.0.0.1:8000/api/v1
+
+Security notes:
+
+These names are examples; use the variables actually supported by your code.
+Generate strong, unique application secrets.
+Do not commit credentials or real environment files.
+Never expose private backend secrets through frontend environment variables.
+Configure secure cookies, HTTPS, and trusted CORS origins for production.
+Keep optional LLM configuration separate from the core NLP pipeline.
+🤖 Chatbot and Help Center
+
+The ResumeIQ AI Career Assistant includes ten predefined questions.
+
+Q1. How can I improve my resume?
+
+Use clear headings, concise bullet points, relevant skills, and specific examples of your achievements. Tailor your resume to the requirements of each job.
+
+Q2. What skills are in demand right now?
+
+Relevant skills depend on your target role and location. Technical areas such as data analysis, software development, cloud computing, and cybersecurity can be useful starting points. Check current job descriptions to identify the skills employers are requesting.
+
+Q3. Which jobs are best for my profile?
+
+ResumeIQ can suggest relevant job categories based on the skills and experience identified in your resume. Review the recommendations and select roles that match your interests and goals.
+
+Q4. How can I prepare for an interview?
+
+Research the employer, review the job description, practice explaining your projects, prepare examples of your achievements, and rehearse common technical and behavioral questions.
+
+Q5. What is a good salary for my experience?
+
+Salary depends on your location, industry, experience, and employer. Compare current job postings and reputable salary surveys for your target role.
+
+Q6. Can you help me write a cover letter?
+
+Yes. Provide the job description and details about your relevant experience. ResumeIQ can help draft a tailored cover letter that accurately represents your background.
+
+Q7. How do I switch careers?
+
+Identify transferable skills, research your target role, compare your current skills with its requirements, and build relevant projects or qualifications to address important gaps.
+
+Q8. What are the top companies hiring?
+
+Hiring activity changes over time and location. Check current employer career pages and reputable job boards to find opportunities relevant to your skills.
+
+Q9. How can I improve my LinkedIn profile?
+
+Use a clear professional headline, write a concise summary, highlight relevant projects and accomplishments, and keep your skills and experience up to date.
+
+Q10. Can you suggest learning resources?
+
+Start with resources aligned with your target role. Consider official documentation, structured online courses, practical projects, and reputable educational platforms.
+
+Chatbot Behavior
+
+The predefined chatbot should:
+
+Display suggested questions.
+Return the associated answer when a question is selected.
+Support basic keyword-based matching.
+Provide a helpful fallback for unrecognized questions.
+Link users to relevant Help Center resources.
+Respect chat-retention settings.
+Allow users to clear their chat history.
+
+An optional LLM mode may extend the chatbot, but the predefined FAQ system must work without a paid API.
+
+📊 User Dashboard
+
+The user dashboard presents information associated with the authenticated account.
+
+Summary Cards
+Total resume analyses.
+Latest similarity score.
+Saved recommendations.
+Recent activity.
+Dashboard Components
+Recent analyses.
+Skill summaries.
+Career recommendations.
+Analysis activity chart.
+Historical similarity scores.
+Recent support tickets.
+Quick-action buttons.
+
+Charts should use real database records. New users should see helpful empty states instead of fabricated history.
+
+🛡️ Admin Dashboard
+
+The administrator dashboard is intended for authorized application management.
+
+Administrative Metrics
+Total registered users.
+Total resume analyses.
+Recent registrations.
+Open support tickets.
+Analysis activity over time.
+Frequently analyzed job categories.
+User Management
+
+Administrators can search users, filter results, inspect permitted account information, and disable or re-enable accounts.
+
+Account-status changes should be recorded in an audit log.
+
+Administrators must not receive unnecessary access to private resume contents.
+
+Support Management
+
+Administrators can:
+
+View support tickets.
+Filter by priority and status.
+Assign tickets.
+Reply to users.
+Update ticket status.
+Review relevant administrative activity.
+FAQ Management
+
+Administrators can create, edit, publish, unpublish, and delete FAQ entries, subject to their permissions.
+
+Audit Logs
+
+Important administrative events should record:
+
+Administrator ID.
+Action.
+Target resource.
+Timestamp.
+Outcome.
+
+Logs must not contain passwords, access tokens, complete resume text, or unnecessary sensitive information.
+
+Administrative Security
+
+The backend must enforce administrator permissions on every protected route. Hiding controls in the frontend is not sufficient security.
+
+🔒 Security and Privacy
+
+ResumeIQ handles potentially sensitive personal information and should follow secure development practices.
+
+Required Security Controls
+Argon2id password hashing.
+Secure session and token handling.
+Refresh-token rotation and revocation.
+Role-based authorization.
+Ownership checks for private resources.
+Pydantic request validation.
+SQLAlchemy parameterized database operations.
+File-signature and format validation.
+Upload-size restrictions.
+Private file storage.
+Request rate limiting.
+Restricted CORS configuration.
+CSRF protection where required.
+HTTPS in production.
+Secure HTTP headers.
+Safe error responses.
+Audit logging for sensitive administrative actions.
+Secrets managed outside source control.
+Dependency vulnerability checks.
+Data-retention and deletion controls.
+Threats to Address
+
+The implementation should protect against:
+
+SQL injection.
+Cross-site scripting.
+Cross-site request forgery.
+Broken access control.
+Insecure direct object references.
+Brute-force attacks.
+Malicious file uploads.
+Path traversal.
+Token theft.
+Privilege escalation.
+Sensitive-data exposure.
+Resource-exhaustion attacks.
+Resume Privacy
+
+Resume files should be stored outside publicly accessible directories and should not be executed.
+
+The system should:
+
+Restrict access to the file owner and authorized services.
+Avoid retaining original files longer than necessary.
+Remove temporary files after processing.
+Provide deletion controls.
+Avoid logging complete resume contents.
+Separate users' private data.
+Apply an explicit chatbot conversation-retention policy.
+
+Uploaded documents are untrusted input. Instructions embedded in a resume must not override application security rules or grant access to private information.
+
+🧪 Testing
+
+Automated testing helps verify that the application behaves correctly and that private information remains protected.
+
+Backend Tests
+
+The backend test suite should cover:
+
+User registration.
+Login and password hashing.
+Role-based authorization.
+Resume upload validation.
+File-processing errors.
+Resume ownership checks.
+Text extraction.
+TF-IDF similarity.
+Skill extraction.
+Career classification.
+Analysis persistence.
+Chatbot FAQ matching.
+Support-ticket permissions.
+Administrator-only endpoints.
+Password-reset expiration.
+Rate limiting.
+Invalid request handling.
+
+Run backend tests from the backend directory:
+
+pytest
+Frontend Tests
+
+The frontend test suite should cover:
+
+Form validation.
+Login and registration states.
+Resume upload.
+Analysis-result rendering.
+Chatbot interaction.
+Help Center search.
+Support ticket forms.
+Protected navigation.
+Administrator access states.
+Responsive navigation.
+
+Run the test command configured in frontend/package.json. For example, if the project defines a test script:
+
+npm test
+End-to-End Testing
+
+Verify this workflow:
+
+Register a new user.
+Log in.
+Upload a sample resume.
+Enter a job description.
+Run an analysis.
+Review the results.
+Save a career recommendation.
+Ask the chatbot a question.
+Create a support ticket.
+Log in as an administrator.
+Review dashboard metrics.
+Respond to the support ticket.
+Confirm that the user can see the response.
+Confirm that saved data remains available after a reload.
+Verify that another user cannot access the first user's private records.
+
+Do not claim that tests pass unless they have actually been executed and their results reviewed.
+
+📚 API Documentation
+
+FastAPI can generate OpenAPI documentation automatically.
+
+In a typical development configuration:
+
+Swagger UI
+
+http://127.0.0.1:8000/docs
+
+ReDoc
+
+http://127.0.0.1:8000/redoc
+
+OpenAPI schema
+
+http://127.0.0.1:8000/openapi.json
+
+The documentation should describe:
+
+API endpoints.
+Request schemas.
+Response schemas.
+Authentication requirements.
+Expected HTTP status codes.
+Validation errors.
+Pagination parameters.
+Example requests and responses.
+
+Interactive API documentation should be configured appropriately for production.
+
+🚀 Deployment
+
+ResumeIQ can be deployed to a hosting environment that supports its frontend, Python backend, PostgreSQL database, and file-storage requirements.
+
+Deployment Components
+React frontend hosting.
+FastAPI backend hosting.
+PostgreSQL database service.
+Private file storage.
+Environment-based configuration.
+HTTPS and trusted domains.
+Optional SMTP email service.
+Optional LLM provider.
+Logging and monitoring.
+Database backups.
+Pre-Deployment Checklist
+
+Frontend production build succeeds.
+
+Backend dependencies are pinned.
+
+Database migrations are applied.
+
+Production secrets are configured securely.
+
+Debug mode is disabled.
+
+CORS allows only trusted origins.
+
+HTTPS is enabled.
+
+Cookies use appropriate security settings.
+
+File uploads are validated and stored privately.
+
+Authentication and authorization tests pass.
+
+Rate limiting is configured.
+
+Health checks are available.
+
+Database backups are configured.
+
+File-retention and deletion policies are implemented.
+
+Optional email and LLM integrations are tested.
+
+Administrator bootstrap is secured.
+
+Docker
+
+If the repository contains a valid docker-compose.yml, review its environment variables and service definitions before running:
+
+docker compose up --build
+
+This command is appropriate only after the Docker configuration has been created and checked.
+
+Do not use development credentials or expose private services unnecessarily in production.
+
+⚠️ Limitations
+
+ResumeIQ provides analytical assistance, but its results have limitations.
+
+Resume Parsing
+
+Text extraction may fail on scanned, encrypted, malformed, or image-only PDFs unless OCR support is implemented.
+
+Skill Extraction
+
+Keyword and taxonomy-based extraction can miss synonyms, misunderstand context, or identify a skill without establishing proficiency.
+
+Similarity Scores
+
+TF-IDF and cosine similarity measure textual similarity. They do not evaluate every aspect of a candidate's qualifications, potential, or suitability.
+
+Career Classification
+
+Classification quality depends on the training dataset, label quality, category definitions, and evaluation methodology.
+
+Generative AI
+
+LLM-generated suggestions may be inaccurate or unsuitable. Users should review all generated content before applying it.
+
+External Integrations
+
+Email delivery and optional LLM functionality require valid provider configuration.
+
+Employment Decisions
+
+ResumeIQ does not predict hiring outcomes, guarantee employment, or replace professional career advice.
+
+🔮 Future Enhancements
+
+Potential future improvements include:
+
+OCR support for scanned resumes.
+Improved semantic matching.
+Multilingual resume analysis.
+More comprehensive skill taxonomies.
+Explainable career recommendations.
+Source-linked learning resources.
+Background processing for large documents.
+Enhanced analytics and reporting.
+Automated accessibility testing.
+Continuous integration and delivery.
+Automated dependency security checks.
+Production monitoring and alerting.
+Advanced data-retention automation.
+More extensive end-to-end testing.
+🤝 Contributing
+
+Contributions, suggestions, and bug reports are welcome.
+
+Contribution Guidelines
+Fork the repository.
+Create a feature branch.
+Implement a focused change.
+Add or update tests.
+Run the relevant test suites.
+Update documentation where necessary.
+Submit a pull request describing your changes.
+
+Please do not submit passwords, API keys, real environment files, private resumes, or other sensitive information.
+
+📄 License
+
+A license has not yet been specified for this project.
+
+Before publishing or distributing the repository, add a LICENSE file that clearly defines the permitted use of the source code.
+
+Review the licenses of third-party libraries, datasets, and other included resources before redistributing them.
+
+👩‍💻 Project Information
+
+Project Name: RESUMEIQ
+
+Project Type: AI-Powered Web Application
+
+Domain: Artificial Intelligence, Natural Language Processing, Career Guidance
+
+Frontend: React.js, Vite, TypeScript, Tailwind CSS
+
+Backend: Python, FastAPI
+
+Database: PostgreSQL
+
+AI Technologies: Scikit-learn, TF-IDF, Cosine Similarity, Skill Extraction
+
+Primary Purpose: Resume analysis, job-description matching, skill-gap identification, and career recommendations.
+
+Intended Use: Educational project, full-stack development practice, and Generative & Agentic AI project evaluation.
+
+Final Note
+
+ResumeIQ is designed to combine AI-assisted analysis with a secure, maintainable, and user-friendly application architecture.
+
+The goal is to help people better understand their resumes, identify opportunities for improvement, and explore career paths using transparent, explainable analysis.
+
+Analyze your resume. Understand your skills. Explore your next opportunity.
+
+RESUMEIQ — Your Resume, Smarter. Your Career, Brighter.
